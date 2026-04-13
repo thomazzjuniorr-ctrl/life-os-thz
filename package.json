@@ -1,0 +1,33 @@
+{
+  "name": "life-os-thz-2026",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Aplicativo web pessoal para rotina, sprints, saude, mudanca e planejamento semanal.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "setup": "npm install",
+    "check:env": "node tools/check-env.mjs",
+    "dev": "node tools/serve.mjs",
+    "start": "node tools/serve.mjs",
+    "build": "node tools/build.mjs",
+    "preview": "node tools/serve.mjs --root dist",
+    "deploy:netlify:preview": "npx netlify deploy --build",
+    "deploy:netlify:prod": "npx netlify deploy --build --prod",
+    "deploy:vercel:prod": "npx vercel --prod",
+    "lint": "eslint .",
+    "validate": "node tools/validate.mjs",
+    "test:smoke": "node tools/validate.mjs",
+    "test:diagnose": "node tools/browser-smoke.mjs",
+    "test:browser": "playwright test",
+    "test:browser:headed": "playwright test --headed",
+    "test": "npm run lint && npm run test:smoke && npm run test:browser",
+    "install:browsers": "playwright install chromium"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.1",
+    "eslint": "^9.26.0"
+  }
+}
